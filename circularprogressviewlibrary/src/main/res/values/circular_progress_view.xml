@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressView">
+        <attr name="strokeColor" format="color" />
+        <attr name="progressStrokeColor" format="color" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="progressStrokeWidth" format="dimension" />
+        <attr name="startAngle" format="integer" />
+        <attr name="maxProgress" format="integer" />
+        <attr name="direction" format="enum">
+            <enum name="clockwise" value="0" />
+            <enum name="anticlockwise" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

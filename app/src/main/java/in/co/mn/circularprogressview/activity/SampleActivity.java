@@ -1,19 +1,30 @@
 package in.co.mn.circularprogressview.activity;
 
+import android.animation.ValueAnimator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.LinearInterpolator;
 
 import in.co.mn.circularprogressview.R;
+import in.co.mn.circularprogressviewlibrary.view.CircularProgressView;
 
 public class SampleActivity extends ActionBarActivity {
+    CircularProgressView mCircularProgressView;
+    private int maxProgress = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
+
+        mCircularProgressView = (CircularProgressView) findViewById(R.id.progress_view);
+        mCircularProgressView.setMaxProgress(maxProgress);
+        animateProgress();
     }
+
+
 
 
     @Override
@@ -36,5 +47,17 @@ public class SampleActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void animateProgress() {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0,100);
+        valueAnimator.addUpdateListener( new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mCircularProgressView.setProgress((Integer) animation.getAnimatedValue());
+            }
+        });
+        valueAnimator.setDuration(5000);
+        valueAnimator.setInterpolator(new LinearInterpolator());
+        valueAnimator.start();
     }
 }
