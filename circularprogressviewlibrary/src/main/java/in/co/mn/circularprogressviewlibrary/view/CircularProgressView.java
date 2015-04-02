@@ -132,7 +132,7 @@ public class CircularProgressView extends View {
     }
 
     public void setMaxProgress(int maxProgress) {
-        this.mMaxProgress = mMaxProgress;
+        this.mMaxProgress = maxProgress;
     }
 
     public void setProgress(int progress) {
