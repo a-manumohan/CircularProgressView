@@ -1,7 +1,6 @@
 language: android
 android:
   # Emulator Management: Create, Start and Wait 
- 
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
